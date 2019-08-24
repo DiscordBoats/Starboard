@@ -1,2 +1,2 @@
-# Starboard
-Official starboard bot for Discord Boats, made by August.
+# Starboat
+> Starboard bot made for discord.boats, made by [August](https://augu.dev)

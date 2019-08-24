@@ -1,0 +1,5 @@
+src/application.yml
+node_modules/
+dist/
+*.lock
+*.log
