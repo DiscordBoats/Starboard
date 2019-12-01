@@ -4,10 +4,10 @@ namespace Starboat.Models
 {
     public class StarModel
     {
-        private ObjectId _Id { get; }
-        public string MessageId { get; }
-        public string ChannelId { get; }
-        public string AuthorId { get; }
-        public int Stars { get; }
+        private ObjectId _Id { get; set; }
+        public string MessageId { get; set; }
+        public string ChannelId { get; set; }
+        public string AuthorId { get; set; }
+        public int Stars { get; set; }
     }
 }

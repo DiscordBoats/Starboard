@@ -6,15 +6,16 @@ namespace Starboat.Services
 {
     public class DatabaseService
     {
-        public MongoClient client;
-        public IMongoDatabase database;
-        public IMongoCollection<StarModel> stars;
-        private readonly IConfigurationRoot config;
+        private readonly MongoClient _client;
+        private readonly IConfigurationRoot _config;
 
         public DatabaseService(IConfigurationRoot root)
         {
-            config = root;
-            client = new MongoClient();
+            _config = root;
+            _client = new MongoClient(MongoUrl.Create(root["databaseUrl"]));
         }
+
+        public IMongoDatabase Database() => _client.GetDatabase("starboat");
+        public IMongoCollection<StarModel> GetCollection() => Database().GetCollection<StarModel>("stars");
     }
 }
