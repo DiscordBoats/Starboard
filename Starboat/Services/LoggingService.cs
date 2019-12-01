@@ -11,18 +11,15 @@ namespace Starboat.Services
     public class LoggingService
     {
         private readonly DiscordSocketClient _discord;
-        private readonly CommandService _commands;
         private string logDirectory { get; }
         private string logFile => Path.Combine(logDirectory, $"${DateTime.UtcNow.ToString("mm-dd-yyyy")}.log");
 
-        public LoggingService(DiscordSocketClient client, CommandService commands)
+        public LoggingService(DiscordSocketClient client)
         {
             logDirectory = Path.Combine(AppContext.BaseDirectory, "logs");
             _discord  = client;
-            _commands = commands;
 
             _discord.Log += OnLogAsync;
-            _commands.Log += OnLogAsync;
         }
 
         private Task OnLogAsync(LogMessage msg)
